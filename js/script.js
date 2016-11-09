@@ -1,13 +1,16 @@
-/* Sets a random integer quantity in range [1, 20] for each flavor. */
-	var numberNode = document.createElement("span"); //Creating a new Element to insert Text
-	var numberText = document.createTextNode("hey man"); 
-	numberNode.appendChild(numberText);
 
-	var parentDiv = document.getElementsByClassName("meta").parentNode; //Reference to the Parent Node,why not just exact node?
-	var childDiv = document.getElementsByClassName("meta") // node to insert before
-	parentDiv.insertBefore(numberNode, childDiv);
 
 function setQuantities() {
+	var Nodes = document.getElementsByClassName("flavor");
+	for (var i = Nodes.length - 1; i >= 0; i--) {
+
+		var numberNode = document.createElement("span"); //Creating a new Element to insert Text
+		var randomNumber = document.createTextNode(Math.floor(Math.random()*(20-1)));
+		numberNode.appendChild(randomNumber);
+
+		var childDiv = Nodes[i].firstChild; // node to insert before
+		Nodes[i].insertBefore(numberNode, childDiv);
+	}
 	}
 
 /* Extracts and returns an array of flavor objects based on data in the DOM. Each
