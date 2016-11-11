@@ -1,11 +1,12 @@
 
 
 function setQuantities() {
-	var Nodes = document.getElementsByClassName("flavor");
+	var Nodes = document.getElementsByClassName("meta");
 	for (var i = Nodes.length - 1; i >= 0; i--) {
 
-		var numberNode = document.createElement("span"); //Creating a new Element to insert Text
-		var randomNumber = document.createTextNode(Math.floor(Math.random()*(20-1)));
+		var numberNode = document.createElement("span"); 
+		numberNode.className = "quantity" //Creating a new Element to insert Text
+		var randomNumber = document.createTextNode(Math.floor(Math.random()*(20)+1));
 		numberNode.appendChild(randomNumber);
 
 		var childDiv = Nodes[i].firstChild; // node to insert before
